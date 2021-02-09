@@ -48,7 +48,7 @@ describe('oop-basic-intro-to-dom/column-chart', () => {
     const value = 200;
     columnChart = new ColumnChart({ value });
     const columnLink = columnChart.element.querySelector('.column-chart__header');
-
+ 
     expect(columnLink).toHaveTextContent(value);
   });
 

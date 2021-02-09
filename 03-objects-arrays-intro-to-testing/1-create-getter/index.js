@@ -4,11 +4,15 @@
  * @returns {function} - function-getter which allow get value from object by set path
  */
 export function createGetter(path) {
-  function finder(obj) {
-    if (!path) {return undefined;}
-    const arr = path.split(".");
+  const arr = path.split("."); 
+  if (!arr.length) { return; }
+  
+  function finder(obj) {   
     let newObj = obj;
-    arr.forEach((item)=>{newObj = newObj[item];});
+    arr.forEach((item)=>{
+      if (!newObj) {return;}
+      else {newObj = newObj[item];}
+    });
     return newObj;
   }
   return finder;
